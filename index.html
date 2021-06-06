@@ -4,9 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Employee directory</title>
 </head>
 <body>
-    
+    <main class="wrapper">
+        <div class="filter-wrapper">
+            <label for="employee-filter">Search Employees</label>
+            <input type="text" id="employee-filter" class="filter">
+        </div>
+        <section class="grid-container" id="grid">
+            <!--Employee Cards-->
+        </section>
+        <div class="overlay hidden">
+            <div class="modal">
+                <button class=modal-close>X</button>
+                <div class="modal-content">
+                    <!--Modal information goes here-->
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="js/data.js"></script>
 </body>
 </html>
