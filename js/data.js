@@ -1,6 +1,6 @@
 let employees = [];
-const urlAPI = `https://randomuser.me/api/?results=12&inc=name, picture,
-email, location, phone, dob &noinfo &nat=US`;
+const urlAPI = `https://randomuser.me/api/?results=12&inc=name,picture,
+email,location,phone,dob&noinfo &nat=US`;
 const gridContainer = document.querySelector('.grid-container');
 const overlay = document.querySelector(".overlay");
 const modalContainer = document.querySelector(".modal-content");
@@ -34,7 +34,7 @@ function createEmployeeList(list){
 
         employeeHTML+=`
         <div class="card" data-index="${index}">
-            <img class="avatar" src="${picture.large}" alt="emplyee #1">
+            <img class="avatar" src="${picture.large}" alt="emplyee #${index}">
             <div class="text-container">
                 <h2 class="name">${name.first} ${name.last}</h2>
                 <p class="email">${email}</p>
@@ -54,11 +54,12 @@ getEmployees(urlAPI)
 function displayModal(index){
     getEmployees(urlAPI)
     let {name, dob, phone, email, location:{city, street, state, postcode}, picture} = employees[index];
+    console.log({name, dob, phone, email, location:{city, street, state, postcode}, picture})
     let date = new Date(dob.date);
     const modalHTML = `
-    <img class="avatar" src="member-1.jpg" alt="emplyee #1">
+    <img class="avatar" src="${picture.large}" alt="emplyee #1">
     <div class="text-container">
-        <h2 class="name">${first.name} ${last.name}</h2>
+        <h2 class="name">${name.first} ${name.last}</h2>
         <p class="email">${email}</p>
         <p class="address">${city}</p>
         <hr />
@@ -76,7 +77,8 @@ function displayModal(index){
 gridContainer.addEventListener("click", e =>{
     if(e.target !==gridContainer){
         const card = e.target.closest(".card");
-        const index = card.getAttribute(".data-index");
+        const index = card.getAttribute("data-index");
+        console.log(index)
 
         displayModal(index);
     }
