@@ -395,6 +395,18 @@ body {
 .wrapper {
   display: flex;
   flex-direction: column;
+  margin: auto;
+  width: 95%;
+}
+
+.title {
+  margin: 30px 0;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .title {
+    text-align: left;
+  }
 }
 
 img {
@@ -408,7 +420,7 @@ img {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 275px;
+  width: 290px;
   height: 100px;
   border: 1px solid #808080;
   border-radius: 5px;
@@ -419,13 +431,38 @@ img {
   margin: 7px 0;
 }
 
+.filter-wrapper {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 250px;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+.filter {
+  height: 35px;
+  padding: 10px;
+  box-shadow: 4px 4px 2px gray;
+  border: 1px solid gray;
+}
+.filter:focus {
+  outline: none;
+  box-shadow: inset 3px 3px 3px 1px gray;
+}
+
 .overlay {
-  position: relative;
+  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  z-index: 999;
   background-color: rgba(100, 100, 100, 0.4);
+  height: 100vh;
 }
 
 .modal {

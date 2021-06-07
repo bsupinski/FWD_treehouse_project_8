@@ -1,0 +1,21 @@
+.filter-wrapper{
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 250px;
+}
+label{
+    margin-bottom: 5px;
+}
+
+.filter{
+    height: 35px;
+    padding: 10px;
+    box-shadow: 4px 4px 2px gray;
+    border: 1px solid gray;
+    &:focus{
+        outline: none;
+        box-shadow: inset 3px 3px 3px 1px gray;
+    }
+}

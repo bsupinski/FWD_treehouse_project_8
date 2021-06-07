@@ -20,7 +20,6 @@ async function getEmployees(url) {
     const employeesJSON = await getJson(url);
     employees = employeesJSON.results; 
     return employees
-     
 }
 
 function createEmployeeList(list){
@@ -52,7 +51,6 @@ getEmployees(urlAPI)
 
 
 function displayModal(index){
-    getEmployees(urlAPI)
     let {name, dob, phone, email, location:{city, street, state, postcode}, picture} = employees[index];
     console.log({name, dob, phone, email, location:{city, street, state, postcode}, picture})
     let date = new Date(dob.date);
@@ -79,7 +77,11 @@ gridContainer.addEventListener("click", e =>{
         const card = e.target.closest(".card");
         const index = card.getAttribute("data-index");
         console.log(index)
-
         displayModal(index);
     }
+})
+
+modalClose.addEventListener("click", () => {
+    overlay.classList.add("hidden")
+
 })
