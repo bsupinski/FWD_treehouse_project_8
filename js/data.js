@@ -1,6 +1,6 @@
 let employees = [];
 const urlAPI = `https://randomuser.me/api/?results=12&inc=name,picture,
-email,location,phone,dob&noinfo &nat=US`;
+email,location,phone,dob&noinfo&nat=US`;
 const gridContainer = document.querySelector('.grid-container');
 const overlay = document.querySelector(".overlay");
 const modalContainer = document.querySelector(".modal-content");
@@ -52,8 +52,8 @@ getEmployees(urlAPI)
 
 function displayModal(index){
     let {name, dob, phone, email, location:{city, street, state, postcode}, picture} = employees[index];
-    console.log({name, dob, phone, email, location:{city, street, state, postcode}, picture})
     let date = new Date(dob.date);
+    console.log(employees);
     const modalHTML = `
     <img class="avatar" src="${picture.large}" alt="emplyee #1">
     <div class="text-container">
@@ -62,7 +62,7 @@ function displayModal(index){
         <p class="address">${city}</p>
         <hr />
         <p class="phone-number">${phone}</p>
-        <p class="address">${street}, ${state}, ${postcode}</p>
+        <p class="address">${street.number} ${street.name}, ${state}, ${postcode}</p>
         <p class="birthday">Birthday: ${date.getMonth()}/${date.getDay()}/${date.getFullYear()}</p>
     </div>
     `;
@@ -76,7 +76,6 @@ gridContainer.addEventListener("click", e =>{
     if(e.target !==gridContainer){
         const card = e.target.closest(".card");
         const index = card.getAttribute("data-index");
-        console.log(index)
         displayModal(index);
     }
 })

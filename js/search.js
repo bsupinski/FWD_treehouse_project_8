@@ -8,14 +8,11 @@ const handleSearch = e =>{
     Array.from(employeeList).forEach(employeeNames => {
         employeeName = employeeNames.textContent.toLowerCase();
         nameCard = employeeNames.parentNode.parentNode;
-        console.log(nameCard);
         if(employeeName.includes(userInput)){
-            nameCard.style.display="box";
+            nameCard.style.display="flex";
         }else{
             nameCard.style.display="none"
         }
-        
-
     })
     
 }
