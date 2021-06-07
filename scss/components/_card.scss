@@ -1,0 +1,14 @@
+.card{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 275px;
+    height: 100px;
+    border: 1px solid #808080;
+    @include roundy(5px);
+    margin: auto;
+}
+
+.card p{
+    margin: 7px 0;
+}

@@ -18,8 +18,7 @@ async function getJson(url){
 
 async function getEmployees(url) {
     const employeesJSON = await getJson(url);
-    employees = employeesJSON.results;
-    console.log(employees)   
+    employees = employeesJSON.results; 
     return employees
      
 }
@@ -31,14 +30,17 @@ function createEmployeeList(list){
         let email = employee.email;
         let city = employee.location.city;
         let picture = employee.picture;
+    
 
         employeeHTML+=`
         <div class="card" data-index="${index}">
-        <img class="avatar" src="${picture.large}" alt="emplyee #1">
-        <div class="text-container">
-        <h2 class="name">${name.first} ${name.last}</h2>
-        <p class="email">${email}</p>
-        <p class="address">${city}</p>
+            <img class="avatar" src="${picture.large}" alt="emplyee #1">
+            <div class="text-container">
+                <h2 class="name">${name.first} ${name.last}</h2>
+                <p class="email">${email}</p>
+                <p class="address">${city}</p>
+            </div>
+        </div>
         `
     });
     gridContainer.innerHTML = employeeHTML;
@@ -52,9 +54,7 @@ getEmployees(urlAPI)
 function displayModal(index){
     getEmployees(urlAPI)
     let {name, dob, phone, email, location:{city, street, state, postcode}, picture} = employees[index];
-
     let date = new Date(dob.date);
-
     const modalHTML = `
     <img class="avatar" src="member-1.jpg" alt="emplyee #1">
     <div class="text-container">
