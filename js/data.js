@@ -1,5 +1,5 @@
 let employees = [];
-const urlAPI = `https://randomuser.me/api/?results=45&inc=name,picture,
+const urlAPI = `https://randomuser.me/api/?results=12&inc=name,picture,
 email,location,phone,dob&noinfo&nat=US`;
 const gridContainer = document.querySelector('.grid-container');
 const overlay = document.querySelector(".overlay");
@@ -74,10 +74,30 @@ function displayModal(index){
 
 gridContainer.addEventListener("click", e =>{
     if(e.target !==gridContainer){
-        const card = e.target.closest(".card");
-        let index = card.getAttribute("data-index");
+        card = e.target.closest(".card");
+        index = card.getAttribute("data-index");
         displayModal(index);
     }
+
+    previous.addEventListener("click", () => {
+        console.log( index)
+        if (index == 0){
+            displayModal(employees.length-1)
+        }else{
+            displayModal(index-=1)
+        }
+    })
+    
+    // next.addEventListener("click", () => {
+    //     if (index == employees.length-1){
+    //         displayModal(0)
+    //     }else{
+    //         displayModal(index+=1)
+            
+    //     }
+    // })
+        
+    
 })
 
 
@@ -85,18 +105,15 @@ modalClose.addEventListener("click", () => {
     overlay.classList.add("hidden")
 })
 
-previous.addEventListener("click", () => {
+
     //if displayModal(index)==0
         //displaymodal(index+employees.length)
     //else change displayModal(index-1)
     
 
 
-})
-
-next.addEventListener("click", () => {
-    //if displayModal(index)==employee.length
+ //if displayModal(index)==employee.length
         //displaymodal(index)==0
     //else change displayModal(index+1)
-})
+
 
