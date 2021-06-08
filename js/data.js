@@ -77,25 +77,27 @@ gridContainer.addEventListener("click", e =>{
         card = e.target.closest(".card");
         index = card.getAttribute("data-index");
         displayModal(index);
-    }
+    };
 
     previous.addEventListener("click", () => {
         console.log( index)
         if (index == 0){
-            displayModal(employees.length-1)
+            index = employees.length-1;
+            displayModal(index)
         }else{
-            displayModal(index-=1)
+            displayModal(index -= 1)
+        }
+    });
+    
+    next.addEventListener("click", () => {
+        if (index == employees.length-1){
+            index = 0
+            displayModal(index)
+        }else{
+            console.log(index)
+            displayModal(index+=1)  
         }
     })
-    
-    // next.addEventListener("click", () => {
-    //     if (index == employees.length-1){
-    //         displayModal(0)
-    //     }else{
-    //         displayModal(index+=1)
-            
-    //     }
-    // })
         
     
 })
