@@ -9,6 +9,13 @@
     margin: auto;
 }
 
+.card .avatar{
+    width: 70px;
+    height: 70px;
+    margin: 10px;
+    @include roundy(45px)
+}
+
 .card p{
     margin: 7px 0;
 }
