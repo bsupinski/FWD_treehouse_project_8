@@ -374,6 +374,21 @@ template {
   display: none;
 }
 
+.title {
+  font-size: 1.4rem;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .title {
+    text-align: left;
+    font-size: 1.5rem;
+  }
+}
+
+label {
+  font-size: 1.4rem;
+}
+
 .text-container {
   text-align: left;
 }
@@ -388,8 +403,20 @@ template {
   color: gray;
 }
 
-.modal-content .text-container {
+.text-container,
+.text-container_modal {
   text-align: center;
+}
+
+.text-container_modal p {
+  font-size: 1rem;
+  color: gray;
+}
+
+.next,
+.previous {
+  font-size: 1rem;
+  text-shadow: 1px 1px 2px gray;
 }
 
 body {
@@ -403,13 +430,13 @@ body {
   width: 95%;
 }
 
-.title {
-  margin: 30px 0;
-  text-align: center;
+header {
+  width: 95%;
+  margin: 50px auto;
 }
 @media (min-width: 768px) {
-  .title {
-    text-align: left;
+  header {
+    max-width: 1200px;
   }
 }
 
@@ -419,9 +446,14 @@ body {
   align-items: center;
   width: 290px;
   height: 100px;
-  border: 1px solid #808080;
+  background-color: white;
+  border: 1px solid rgba(168, 168, 168, 0.815);
   border-radius: 5px;
   margin: auto;
+  transition: 0.1s ease-in-out;
+}
+.card:hover {
+  transform: scale(1.4);
 }
 
 .card .avatar {
@@ -448,14 +480,16 @@ label {
 }
 
 .filter {
-  height: 35px;
+  align-self: center;
+  height: 45px;
+  width: 280px;
   padding: 10px;
-  box-shadow: 4px 4px 2px gray;
+  box-shadow: 4px 4px 2px rgba(168, 168, 168, 0.815);
   border: 1px solid gray;
 }
 .filter:focus {
   outline: none;
-  box-shadow: inset 3px 3px 3px 1px gray;
+  box-shadow: inset 3px 3px 3px 1px rgba(168, 168, 168, 0.815);
 }
 
 .overlay {
@@ -475,11 +509,11 @@ label {
 
 .modal {
   width: 300px;
-  height: 350px;
+  height: 450px;
   margin-top: 100px;
   position: fixed;
-  background-color: #fff;
-  border: 1px solid #778;
+  background-color: white;
+  border: 1px solid rgba(168, 168, 168, 0.815);
   border-radius: 5px;
   padding: 30px 20px;
   display: grid;
@@ -488,33 +522,48 @@ label {
 .modal-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
 .modal-content .avatar {
-  width: 90px;
-  height: 90px;
-  border-radius: 45px;
+  width: 125px;
+  height: 125px;
+  margin-bottom: 10px;
+  border-radius: 90px;
+}
+
+.text-container_modal p {
+  margin: 9px;
+}
+
+hr {
+  margin: 30px 0;
 }
 
 .modal-close {
   position: absolute;
-  right: 30px;
-  top: 15px;
+  right: 12px;
+  top: 10px;
   cursor: pointer;
+  background-color: none;
+  border: none;
+  background-color: white;
+}
+
+.previous,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 420px;
 }
 
 .previous {
-  position: absolute;
-  top: 310px;
-  left: 30px;
+  left: 25px;
 }
 
 .next {
-  position: absolute;
-  top: 310px;
-  right: 35px;
+  right: 25px;
 }
 
 .hidden {

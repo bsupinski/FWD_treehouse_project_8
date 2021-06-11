@@ -10,12 +10,14 @@ label{
 }
 
 .filter{
-    height: 35px;
+    align-self: center;
+    height: 45px;
+    width: 280px;
     padding: 10px;
-    box-shadow: 4px 4px 2px gray;
+    box-shadow: 4px 4px 2px $color-secondary;
     border: 1px solid gray;
     &:focus{
         outline: none;
-        box-shadow: inset 3px 3px 3px 1px gray;
+        box-shadow: inset 3px 3px 3px 1px $color-secondary;
     }
 }

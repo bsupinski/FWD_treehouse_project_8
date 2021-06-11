@@ -1,0 +1,7 @@
+header{
+    width: 95%;
+    margin: 50px auto;
+    @include media-q("small sc"){
+        max-width: 1200px;  
+    }
+}

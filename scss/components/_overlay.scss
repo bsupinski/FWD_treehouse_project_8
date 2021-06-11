@@ -16,11 +16,11 @@
 
 .modal{
     width: 300px;
-    height:350px;
+    height:450px;
     margin-top: 100px;
     position: fixed;
-    background-color: #fff;
-    border: 1px solid #778;
+    background-color: $color-main;
+    border: 1px solid $color-secondary;
     border-radius: 5px;
     padding: 30px 20px;
     display: grid;
@@ -29,33 +29,50 @@
 .modal-content{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
 .modal-content .avatar{
-    width: 90px;
-    height: 90px;
-    @include roundy(45px);
+    width: 125px;
+    height: 125px;
+    margin-bottom: 10px;
+    @include roundy(90px);
+}
+
+.text-container_modal p{
+    margin: 9px
+}
+
+hr{
+   margin: 30px 0;
 }
 
 .modal-close{
     position: absolute;
-    right: 30px;
-    top: 15px;
+    right: 12px;
+    top: 10px;
     cursor: pointer;
+    background-color: none;
+    border: none;
+    background-color: $color-main;
+}
+
+
+.previous,
+.next{
+    cursor: pointer;
+    position: absolute;
+    top: 420px;
+
 }
 
 .previous{
-    position: absolute;
-    top: 310px;
-    left: 30px
+    left: 25px
 }
 
 .next{
-    position: absolute;
-    top: 310px;
-    right: 35px
+    right: 25px
 }
 
 .hidden{

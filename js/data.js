@@ -1,5 +1,5 @@
 let employees = [];
-const urlAPI = `https://randomuser.me/api/?results=12&inc=name,picture,
+const urlAPI = `https://randomuser.me/api/?results=40&inc=name,picture,
 email,location,phone,dob&noinfo&nat=US`;
 const gridContainer = document.querySelector('.grid-container');
 const overlay = document.querySelector(".overlay");
@@ -57,11 +57,11 @@ function displayModal(index){
     let date = new Date(dob.date);
     const modalHTML = `
         <img class="avatar" src="${picture.large}" alt="${name.first} ${name.last}">
-        <div class="text-container">
+        <div class="text-container_modal">
             <h2 class="modalname">${name.first} ${name.last}</h2>
             <p class="email">${email}</p>
             <p class="address">${city}</p>
-            <hr />
+            <hr>
             <p class="phone-number">${phone}</p>
             <p class="address">${street.number} ${street.name}, ${state}, ${postcode}</p>
             <p class="birthday">Birthday: ${date.getMonth()}/${date.getDay()}/${date.getFullYear()}</p>
@@ -80,42 +80,26 @@ gridContainer.addEventListener("click", e =>{
     };
 
     previous.addEventListener("click", () => {
-        console.log( index)
         if (index == 0){
             index = employees.length-1;
             displayModal(index)
         }else{
-            displayModal(index -= 1)
+            index--;
+            displayModal(index);
         }
     });
-    
+
     next.addEventListener("click", () => {
         if (index == employees.length-1){
-            index = 0
-            displayModal(index)
+            index = 0;
+            displayModal(index);
         }else{
-            console.log(index)
-            displayModal(index+=1)  
+            index++;
+            displayModal(index);
         }
     })
-        
-    
 })
-
 
 modalClose.addEventListener("click", () => {
     overlay.classList.add("hidden")
 })
-
-
-    //if displayModal(index)==0
-        //displaymodal(index+employees.length)
-    //else change displayModal(index-1)
-    
-
-
- //if displayModal(index)==employee.length
-        //displaymodal(index)==0
-    //else change displayModal(index+1)
-
-

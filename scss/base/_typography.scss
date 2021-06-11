@@ -1,3 +1,17 @@
+.title{
+    font-size: 1.4rem;
+    text-align: center;
+    @include media-q("small sc"){
+        text-align: left;
+        font-size: 1.5rem;
+    }
+}
+
+label{
+    font-size: 1.4rem;
+}
+
+
 .text-container{
     text-align: left;
 }
@@ -13,6 +27,19 @@
     color: gray;
 }
 
-.modal-content .text-container{
+.text-container,
+.text-container_modal
+{
     text-align: center;
+}
+
+.text-container_modal p{
+    font-size: 1rem;
+    color: gray
+}
+
+.next,
+.previous{
+    font-size: 1rem;
+    text-shadow: 1px 1px 2px gray;
 }
